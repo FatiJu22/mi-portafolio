@@ -44,6 +44,8 @@ const Hero = () => {
     document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const cvUrl = `${import.meta.env.BASE_URL}assets/Fatima_Juliet_Rivero_Cruz_CV.pdf`;
+
   return (
     <section
       id="hero"
@@ -123,7 +125,7 @@ const Hero = () => {
           </button>
 
           <a
-            href="/assets/Fatima_Juliet_Rivero_Cruz_CV.pdf"
+            href={cvUrl}
             download
             className="group flex items-center gap-2 px-8 py-4 rounded-xl glass border border-[#ff4fd8]/30 text-white font-semibold text-base sm:text-lg transition-all duration-300 hover:border-[#ff4fd8]/60 hover:bg-[#ff4fd8]/5"
           >
