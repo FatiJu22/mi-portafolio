@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown, Download, Github, Linkedin, Mail } from "lucide-react";
+import cvPdfUrl from "../assets/Fatima Juliet Rivero Cruz_CV .pdf?url";
 
 const roles = [
   "Desarrolladora Full Stack",
@@ -42,26 +43,6 @@ const Hero = () => {
 
   const handleScrollToAbout = () => {
     document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  const cvUrl = `${import.meta.env.BASE_URL}assets/Fatima%20Juliet%20Rivero%20Cruz_CV%20.pdf`;
-
-  const handleDownloadCv = async () => {
-    const response = await fetch(cvUrl);
-    if (!response.ok) {
-      window.location.href = cvUrl;
-      return;
-    }
-
-    const blob = await response.blob();
-    const objectUrl = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.href = objectUrl;
-    link.download = "Fatima Juliet Rivero Cruz_CV .pdf";
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
-    URL.revokeObjectURL(objectUrl);
   };
 
   return (
@@ -142,14 +123,14 @@ const Hero = () => {
             </span>
           </button>
 
-          <button
-            type="button"
-            onClick={handleDownloadCv}
+          <a
+            href={cvPdfUrl}
+            download="Fatima Juliet Rivero Cruz_CV .pdf"
             className="group flex items-center gap-2 px-8 py-4 rounded-xl glass border border-[#ff4fd8]/30 text-white font-semibold text-base sm:text-lg transition-all duration-300 hover:border-[#ff4fd8]/60 hover:bg-[#ff4fd8]/5"
           >
             <Download className="w-5 h-5" />
             Descargar CV
-          </button>
+          </a>
         </motion.div>
 
         {/* Social Links */}
