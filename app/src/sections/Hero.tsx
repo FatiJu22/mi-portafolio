@@ -44,9 +44,7 @@ const Hero = () => {
     document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const cvUrl = encodeURI(
-    `${import.meta.env.BASE_URL}assets/Fatima Juliet Rivero Cruz_CV .pdf`
-  );
+  const cvUrl = `${import.meta.env.BASE_URL}assets/Fatima%20Juliet%20Rivero%20Cruz_CV%20.pdf`;
 
   const handleDownloadCv = async () => {
     const response = await fetch(cvUrl);
