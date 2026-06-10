@@ -46,6 +46,24 @@ const Hero = () => {
 
   const cvUrl = `${import.meta.env.BASE_URL}assets/Fatima_Juliet_Rivero_Cruz_CV.pdf`;
 
+  const handleDownloadCv = async () => {
+    const response = await fetch(cvUrl);
+    if (!response.ok) {
+      window.location.href = cvUrl;
+      return;
+    }
+
+    const blob = await response.blob();
+    const objectUrl = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = objectUrl;
+    link.download = "Fatima_Juliet_Rivero_Cruz_CV.pdf";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    URL.revokeObjectURL(objectUrl);
+  };
+
   return (
     <section
       id="hero"
@@ -124,14 +142,14 @@ const Hero = () => {
             </span>
           </button>
 
-          <a
-            href={cvUrl}
-            download
+          <button
+            type="button"
+            onClick={handleDownloadCv}
             className="group flex items-center gap-2 px-8 py-4 rounded-xl glass border border-[#ff4fd8]/30 text-white font-semibold text-base sm:text-lg transition-all duration-300 hover:border-[#ff4fd8]/60 hover:bg-[#ff4fd8]/5"
           >
             <Download className="w-5 h-5" />
             Descargar CV
-          </a>
+          </button>
         </motion.div>
 
         {/* Social Links */}
