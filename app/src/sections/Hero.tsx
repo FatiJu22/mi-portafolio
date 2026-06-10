@@ -44,7 +44,9 @@ const Hero = () => {
     document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const cvUrl = `${import.meta.env.BASE_URL}assets/Fatima_Juliet_Rivero_Cruz_CV.pdf`;
+  const cvUrl = encodeURI(
+    `${import.meta.env.BASE_URL}assets/Fatima Juliet Rivero Cruz_CV .pdf`
+  );
 
   const handleDownloadCv = async () => {
     const response = await fetch(cvUrl);
@@ -57,7 +59,7 @@ const Hero = () => {
     const objectUrl = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = objectUrl;
-    link.download = "Fatima_Juliet_Rivero_Cruz_CV.pdf";
+    link.download = "Fatima Juliet Rivero Cruz_CV .pdf";
     document.body.appendChild(link);
     link.click();
     link.remove();
