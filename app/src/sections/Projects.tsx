@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { Github, ExternalLink, Layers, Cpu, Database, Lock, Cloud, Bot } from "lucide-react";
+import { ExternalLink, Layers, Cpu, Database, Lock, Cloud, Bot } from "lucide-react";
 import bizpanImage from "../img/BIZPAN.png";
 import bizgesImage from "../img/BIZGES.png";
 import bizproImage from "../img/BIZPRO.png";
